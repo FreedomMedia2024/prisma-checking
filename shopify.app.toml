@@ -1,10 +1,25 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "ff58db2085905c38bb04ba8d5b614871"
-application_url = "https://example.com/"
-embedded = true
 name = "luxury-venture-app"
 handle = "luxury-venture-app-17"
+application_url = "https://poll-respondent-cookbook-ratings.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-d2ba7c83.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://poll-respondent-cookbook-ratings.trycloudflare.com/auth/callback",
+  "https://poll-respondent-cookbook-ratings.trycloudflare.com/auth/shopify/callback",
+  "https://poll-respondent-cookbook-ratings.trycloudflare.com/api/auth/callback"
+]
 
 [webhooks]
 api_version = "2024-10"
@@ -12,13 +27,6 @@ api_version = "2024-10"
   [[webhooks.subscriptions]]
   topics = [ "app/uninstalled" ]
   uri = "/webhooks/app/uninstalled"
-
-[access_scopes]
-# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
-
-[auth]
-redirect_urls = [ "https://example.com/api/auth" ]
 
 [pos]
 embedded = false
